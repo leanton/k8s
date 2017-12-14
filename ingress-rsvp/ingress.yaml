@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: rsvp-ingress
+spec:
+  rules:
+  - host: blue.rsvp.com
+    http:
+      paths:
+      - backend: 
+          serviceName: rsvp-blue
+          servicePort: 80
+  - host: green.rsvp.com
+    http:
+      paths:
+      - backend:
+          serviceName: rsvp-green
+          servicePort: 80

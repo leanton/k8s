@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: rsvp-green
+spec: 
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: rsvp-green
+    spec:
+      containers:
+      - name: rsvp-app-green
+        image: teamcloudyuga/rsvpapp
+        env:
+        - name: MONGODB_HOST
+          value: mongodb
+        - name: TEXT1
+          value: Welcome, Grass!
+        - name: TEXT2
+          value: Green Comp
+        - name: COMPANY
+          value: Green Inc
+        ports:
+        - containerPort: 5000
+          name: web-port

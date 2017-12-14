@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: rsvp-blue
+spec: 
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: rsvp-blue
+    spec:
+      containers:
+      - name: rsvp-app-blue
+        image: teamcloudyuga/rsvpapp
+        env:
+        - name: MONGODB_HOST
+          value: mongodb
+        - name: TEXT1
+          value: Welcome, Water!
+        - name: TEXT2
+          value: Blue Comp
+        - name: COMPANY
+          value: Blue Inc
+        ports:
+        - containerPort: 5000
+          name: web-port
